@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+
+{% for cat, msg in get_flashed_messages(True) %}
+    <div class="flash {{ cat }}"> {{ msg }}</div>
+{% endfor %}
+
+<div class="form">
+    <form action="/register" method="post">
+        <p> Имя: <input type="text" name="username" required> </p>
+        <p> Емаил: <input type="email" name="email" required> </p>
+        <p> Возрастъ: <input type="number" name="age" required> </p>
+        <p><input type="submit" value="Отправить"></p>
+    </form>
+</div>
+
+
+{% endblock content %}
